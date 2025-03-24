@@ -18,28 +18,7 @@ Créez un nouveau workspace Nx avec Angular et NestJS.
 ```shell
 npx create-nx-workspace@latest monorepo
 ```
-Suivez les instructions à l'écran. Ici nous allons choisir `None` quand l'outil demande la stack à utiliser, pour avoir le choix par la suite du front et du back.
-
-## Angular
-
-Commencez par ajouter le plugin nx:
-
-```shell
-nx add @nx/angular
-```
-
-Puis ajoutez votre application frontend:
-
-```shell
-nx generate @nx/angular:app apps/frontend
-```
-
-> en cas d'erreur de type
->>  NX   The "@nx/angular:application" generator doesn't yet support the existing TypeScript setup
->> 
->>  We're working hard to support the existing TypeScript setup with the "@nx/angular:application" generator. We'll soon release a new version of Nx with support for it.
-> 
-> voici une résolution possible https://github.com/nrwl/nx/issues/28322#issuecomment-2627757718
+Suivez les instructions à l'écran. Ici nous allons choisir `Angular` quand l'outil demande la stack à utiliser.
 
 ## NestJs
 
@@ -55,4 +34,12 @@ Puis ajoutez votre application backend:
 nx generate @nx/nest:app apps/backend --frontendProject frontend
 ```
 
+> citez l'application `frontend` avec le nom donné à l'étape précédente 
+
 > `--frontendProject frontend` permet de créer le proxy dans le projet frontend pour lier le serveur backend de développement
+
+## Lancement en parallèle
+
+```shell
+nx run-many --target=serve --projects=backend,frontend --parallel
+```
