@@ -52,6 +52,7 @@ nx add @nx/nest
 Puis ajoutez votre application backend:
 
 ```shell
-nx generate @nx/next:app apps/backend --frontendProject apps/frontend
+nx generate @nx/nest:app apps/backend --frontendProject frontend
 ```
 
+> `--frontendProject frontend` permet de créer le proxy dans le projet frontend pour lier le serveur backend de développement
